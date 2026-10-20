@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Kamouyon Vinson (KV), aspiring full stack software developer at i.c.stars.">
+  <title>KV | Kamouyon Vinson Portfolio</title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  
+  <div class="bg-shapes" aria-hidden="true">
+    <span class="blob blob--purple"></span>
+    <span class="blob blob--gold"></span>
+    <span class="ring ring--lg"></span>
+    <span class="ring ring--sm"></span>
+  </div>
+
+  <header class="site-header">
+    <a href="#hero" class="logo" aria-label="Back to top">KV</a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    
+    <section id="hero" class="hero">
+      <p class="eyebrow">Portfolio / 2026</p>
+      <h1 class="hero__name">
+        <span>Kamouyon</span>
+        <span class="outline">Vinson</span>
+      </h1>
+      <p class="hero__tagline">
+        Aspiring Full Stack Software Developer
+        <span class="dot" aria-hidden="true"></span>
+        i.c.stars
+      </p>
+
+      
+      <svg class="hero__art" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="150" class="art-stroke-gold" />
+        <path d="M60 260 Q 200 40 340 260" class="art-stroke-white" />
+        <circle cx="290" cy="130" r="38" class="art-fill-gold" />
+        <rect x="90" y="250" width="70" height="70" rx="14" class="art-fill-purple" transform="rotate(18 125 285)" />
+      </svg>
+
+      <a href="#about" class="scroll-cue">Scroll</a>
+    </section>
+
+    <section id="about" class="section about reveal">
+      <div class="section__label">
+        <span class="section__num">01</span>
+        <h2>About Me</h2>
+      </div>
+
+      <div class="about__grid">
+        <p class="about__text">
+          South side Chicago kid that often finds himself trailing the various pathways
+          that lead to a creative safe haven. From coding, motion graphics, music, VFX and
+          content creation, one of those pathways would happen to spawn from the knowledge
+          gained in my time with i.c.stars to become a Full Stack Developer.
+        </p>
+
+        <figure class="about__photo">
+          <img
+            src="https://camo.githubusercontent.com/1207694893ddbd41d9de885da76698a48da4a8efeb8c28408fa53b257db03e49/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f76322f44353630334151455061682d7a334a667243672f70726f66696c652d646973706c617970686f746f2d7363616c655f3230305f3230302f4235365a38516a55486d4763416b2d2f302f313738323638393132333334373f653d3231343734383336343726763d6265746126743d665149514e7675586c6c3079494141325251495568475f59797073637678395f6b584145304a546f626c41"
+            alt="Kamouyon in a hazmat suit at his old job as an operating engineer">
+        </figure>
+      </div>
+    </section>
+
+    
+    <section id="projects" class="section projects reveal">
+      <div class="section__label">
+        <span class="section__num">02</span>
+        <h2>Projects</h2>
+      </div>
+
+      <div class="projects__grid">
+
+        
+        <article class="project">
+          <div class="project__media">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0b9vOxX4Wy0kuD8BPGQHITY6ZmFU53fV6VF-sctl6kw&s=10"
+              alt="Yellow Woman book cover that Kamouyon did the book report on">
+          </div>
+          <div class="project__body">
+            <span class="project__tag">High School</span>
+            <h3>KV Website</h3>
+            <p>
+              During high school I built a very simple website for a book review. More
+              specifically, a basic website with hardly any proper HTML on a book written
+              by Leslie Marmon Silko called Yellow Woman. In short, the website was whack.
+              Don't bring up that website ever again.
+            </p>
+          </div>
+        </article>
+
+        
+        <article class="project project--placeholder">
+          <div class="project__media project__media--shape" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="project__body">
+            <span class="project__tag">Coming Soon</span>
+            <h3>Project Title</h3>
+            <p>What it does and what you built.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    
+    <section id="contact" class="section contact reveal">
+      <div class="section__label">
+        <span class="section__num">03</span>
+        <h2>Contact Me</h2>
+      </div>
+
+      <p class="contact__lead">Let's build something together.</p>
+
+      <div class="contact__links">
+        <a class="btn btn--gold" href="mailto:kvinson@icstars.org">kvinson@icstars.org</a>
+        <a class="btn btn--outline" href="https://github.com/KVeeIC" target="_blank" rel="noopener">github.com/KVeeIC</a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Kamouyon Vinson</p>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>
