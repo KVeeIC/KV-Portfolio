@@ -1,7 +1,7 @@
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// 2. Scroll reveal
+
 const revealItems = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
@@ -10,7 +10,7 @@ if ("IntersectionObserver" in window) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target); // only animate once
+          observer.unobserve(entry.target); // set to only animate once
         }
       });
     },

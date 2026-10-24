@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # KV Portfolio
 
 Kamouyon Vinson's portfolio page. Live at https://kveeic.github.io/KV-Portfolio/
@@ -22,3 +23,7 @@ KV-Portfolio/
 ## Writing rule
 
 
+=======
+# KV-Portfolio
+Kamouyon's Portfolio Page
+>>>>>>> 0ac332989ad1651070f0cbd1ea07a9966c2b13da
