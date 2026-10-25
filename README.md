@@ -1,29 +1,25 @@
-<<<<<<< HEAD
 # KV Portfolio
 
-Kamouyon Vinson's portfolio page. Live at https://kveeic.github.io/KV-Portfolio/
+Kamouyon Vinson's portfolio page, inspired by one of my favorite RPG's Undertale
+Live at https://kveeic.github.io/KV-Portfolio/
+
+## List of Notable Site Functions to upkeep for reference and modification.
+
+1. A loading screen shows the KV sprite.
+2. When the page is ready, a "!" pops up, the sprite turns into a red heart (the SOUL), and the heart jumps down while the site fades in.
+3. Visitors move the heart around and select things with it.
+
+| Action | Keyboard | Mouse | Phone |
+| --- | --- | --- | --- |
+| Move | Arrow keys or WASD | Heart follows the mouse | On screen D pad |
+| Select | Z, Enter or Space | Click | Tap, or the Z button |
+| Back | X, Esc or Backspace | Click "* Back" | The X button |
+
+Pressing X while text is typing shows the full text right away similarly to the text functions in Undertale.
 
 
 
-```
-KV-Portfolio/
-  index.html        All page content (text, links, images)
-  css/style.css     All styling, split into numbered sections
-  js/main.js        Small scripts (footer year, scroll fade in)
-  assets/images/    Put your own images here
-```
+- **Loading time:** `minTime` at the top of `js/intro.js`.
+- **Heart speed:** `speed` at the top of `js/soul.js`.
+- **Typing speed:** `speed` at the top of `js/typewriter.js`.
 
-## Quick edits
-
-- **Colors and fonts:** change the variables at the top of `css/style.css` (section 1).
-- **Add a project:** in `index.html`, copy one `<article class="project">` block and edit it.
-- **Use a local image:** drop it in `assets/images/` and point to it, for example `src="assets/images/me.jpg"`.
-- **Preview locally:** in VS Code, install the Live Server extension, right click `index.html`, and pick "Open with Live Server".
-
-## Writing rule
-
-
-=======
-# KV-Portfolio
-Kamouyon's Portfolio Page
->>>>>>> 0ac332989ad1651070f0cbd1ea07a9966c2b13da

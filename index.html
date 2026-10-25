@@ -5,148 +5,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio of Kamouyon Vinson (KV), aspiring full stack software developer at i.c.stars.">
   <title>KV | Kamouyon Vinson Portfolio</title>
+  <link rel="icon" href="assets/images/soul-heart.png">
 
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Tells the CSS that JavaScript is on, so the loader and game controls can run -->
+  <script>document.documentElement.classList.add("js");</script>
 
-  
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  
-  <div class="bg-shapes" aria-hidden="true">
-    <span class="blob blob--purple"></span>
-    <span class="blob blob--gold"></span>
-    <span class="ring ring--lg"></span>
-    <span class="ring ring--sm"></span>
+  <!-- =====================================================
+       1. Loading Screen and animations for the wesbite transition
+       ===================================================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__sprite-wrap">
+      <span class="loader__alert">!</span>
+      <img class="loader__sprite" id="loader-sprite" src="assets/images/kv-sprite.png" alt="">
+    </div>
+    <p class="loader__text">LOADING<span class="loader__dots"></span></p>
+    <div class="loader__bar"><span id="loader-bar"></span></div>
   </div>
 
-  <header class="site-header">
-    <a href="#hero" class="logo" aria-label="Back to top">KV</a>
-    <nav class="nav">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <!-- =====================================================
+       2. The Soul Sprite for navigation
+       Called by js/soul.js
+       ===================================================== -->
+  <img class="soul" id="soul" src="assets/images/soul-heart.png" alt="" aria-hidden="true">
 
-  <main>
+  <!-- =====================================================
+       3. Code for the interactivity within the website
+       ===================================================== -->
+  <div class="app" id="app">
 
-    
-    <section id="hero" class="hero">
-      <p class="eyebrow">Portfolio / 2026</p>
-      <h1 class="hero__name">
-        <span>Kamouyon</span>
-        <span class="outline">Vinson</span>
-      </h1>
-      <p class="hero__tagline">
-        Aspiring Full Stack Software Developer
-        <span class="dot" aria-hidden="true"></span>
-        i.c.stars
-      </p>
+    <!-- Stats bar across the top -->
+    <header class="stats">
+      <span class="stats__name">KV</span>
+      <span class="stats__lv">LV 1</span>
+      <span class="stats__hp">
+        HP
+        <span class="hpbar" aria-hidden="true"><span></span></span>
+        20 / 20
+      </span>
+      <button class="stats__sound" type="button" data-soul data-action="sound" aria-pressed="false">
+        SOUND: <span id="sound-state">OFF</span>
+      </button>
+    </header>
 
-      
-      <svg class="hero__art" viewBox="0 0 400 400" aria-hidden="true">
-        <circle cx="200" cy="200" r="150" class="art-stroke-gold" />
-        <path d="M60 260 Q 200 40 340 260" class="art-stroke-white" />
-        <circle cx="290" cy="130" r="38" class="art-fill-gold" />
-        <rect x="90" y="250" width="70" height="70" rx="14" class="art-fill-purple" transform="rotate(18 125 285)" />
-      </svg>
+    <main class="stage">
 
-      <a href="#about" class="scroll-cue">Scroll</a>
-    </section>
-
-    <section id="about" class="section about reveal">
-      <div class="section__label">
-        <span class="section__num">01</span>
-        <h2>About Me</h2>
+      <!-- Code for the KV Sprite above the dialogue box -->
+      <div class="encounter" aria-hidden="true">
+        <img class="encounter__sprite" src="assets/images/kv-sprite.png" alt="">
       </div>
 
-      <div class="about__grid">
-        <p class="about__text">
-          South side Chicago kid that often finds himself trailing the various pathways
-          that lead to a creative safe haven. From coding, motion graphics, music, VFX and
-          content creation, one of those pathways would happen to spawn from the knowledge
-          gained in my time with i.c.stars to become a Full Stack Developer.
-        </p>
+      <!-- The dialogue box. The functionality must resemble undertale so that the KV Sprite or Soul Sprite doesn't break -->
+      <section class="box" aria-live="polite">
 
-        <figure class="about__photo">
-          <img
-            src="https://camo.githubusercontent.com/1207694893ddbd41d9de885da76698a48da4a8efeb8c28408fa53b257db03e49/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f76322f44353630334151455061682d7a334a667243672f70726f66696c652d646973706c617970686f746f2d7363616c655f3230305f3230302f4235365a38516a55486d4763416b2d2f302f313738323638393132333334373f653d3231343734383336343726763d6265746126743d665149514e7675586c6c3079494141325251495568475f59797073637678395f6b584145304a546f626c41"
-            alt="Kamouyon in a hazmat suit at his old job as an operating engineer">
-        </figure>
-      </div>
-    </section>
+        <!-- ---------- Home Section ---------- -->
+        <div class="panel" data-panel="home">
+          <h1 class="sr-only">Kamouyon Vinson</h1>
+          <p class="line" data-type>* KV appears!</p>
+          <p class="line" data-type>* An aspiring Full Stack Software Developer from the South Side of Chicago, training at i.c.stars.</p>
+          <p class="line" data-type>* Move your SOUL onto an option below and press Z (or click it) to choose.</p>
+        </div>
 
-    
-    <section id="projects" class="section projects reveal">
-      <div class="section__label">
-        <span class="section__num">02</span>
-        <h2>Projects</h2>
-      </div>
-
-      <div class="projects__grid">
-
-        
-        <article class="project">
-          <div class="project__media">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0b9vOxX4Wy0kuD8BPGQHITY6ZmFU53fV6VF-sctl6kw&s=10"
-              alt="Yellow Woman book cover that Kamouyon did the book report on">
+        <!-- ---------- About section ---------- -->
+        <div class="panel" data-panel="about" data-back="home">
+          <h2 class="panel__title">* ABOUT</h2>
+          <div class="about">
+            <figure class="about__photo">
+              <img
+                src="https://camo.githubusercontent.com/1207694893ddbd41d9de885da76698a48da4a8efeb8c28408fa53b257db03e49/68747470733a2f2f6d656469612e6c6963646e2e636f6d2f646d732f696d6167652f76322f44353630334151455061682d7a334a667243672f70726f66696c652d646973706c617970686f746f2d7363616c655f3230305f3230302f4235365a38516a55486d4763416b2d2f302f313738323638393132333334373f653d3231343734383336343726763d6265746126743d665149514e7675586c6c3079494141325251495568475f59797073637678395f6b584145304a546f626c41"
+                alt="Kamouyon in a hazmat suit at his old job as an operating engineer">
+            </figure>
+            <p class="line" data-type>* South side Chicago kid that often finds himself trailing the various pathways that lead to a creative safe haven. From coding, motion graphics, music, VFX and content creation, one of those pathways would happen to spawn from the knowledge gained in my time with i.c.stars to become a Full Stack Developer.</p>
           </div>
-          <div class="project__body">
-            <span class="project__tag">High School</span>
-            <h3>KV Website</h3>
-            <p>
-              During high school I built a very simple website for a book review. More
-              specifically, a basic website with hardly any proper HTML on a book written
-              by Leslie Marmon Silko called Yellow Woman. In short, the website was whack.
-              Don't bring up that website ever again.
-            </p>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="home">* Back</button>
           </div>
-        </article>
+        </div>
 
-        
-        <article class="project project--placeholder">
-          <div class="project__media project__media--shape" aria-hidden="true">
-            <span></span><span></span><span></span>
+        <!-- ---------- Projects (list) ---------- -->
+        <div class="panel" data-panel="projects" data-back="home">
+          <h2 class="panel__title">* PROJECTS</h2>
+          <p class="line" data-type>* Pick a project to check it out.</p>
+          <!-- To add a project: copy one <button> here AND copy a project panel below.
+               The data-go value must match the panel's data-panel value. -->
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="project-kv-website">* KV Website</button>
+            <button class="option" type="button" data-soul data-go="project-next">* Project Title</button>
+            <button class="option" type="button" data-soul data-go="home">* Back</button>
           </div>
-          <div class="project__body">
-            <span class="project__tag">Coming Soon</span>
-            <h3>Project Title</h3>
-            <p>What it does and what you built.</p>
+        </div>
+
+        <!-- ---------- PROJECT: KV Website ---------- -->
+        <div class="panel" data-panel="project-kv-website" data-back="projects" data-section="projects">
+          <div class="project">
+            <figure class="project__media">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0b9vOxX4Wy0kuD8BPGQHITY6ZmFU53fV6VF-sctl6kw&s=10"
+                alt="Yellow Woman book cover that Kamouyon did the book report on">
+            </figure>
+            <div class="project__body">
+              <span class="tag">HIGH SCHOOL</span>
+              <h3 class="project__title">KV Website</h3>
+              <p class="line" data-type>* During high school I built a very simple website for a book review. More specifically, a basic website with hardly any proper HTML on a book written by Leslie Marmon Silko called Yellow Woman. In short, the website was whack. Don't bring up that website ever again.</p>
+            </div>
           </div>
-        </article>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="projects">* Back</button>
+          </div>
+        </div>
 
+        <!-- ---------- PROJECT: placeholder ---------- -->
+        <div class="panel" data-panel="project-next" data-back="projects" data-section="projects">
+          <div class="project">
+            <figure class="project__media project__media--empty" aria-hidden="true"></figure>
+            <div class="project__body">
+              <span class="tag">COMING SOON</span>
+              <h3 class="project__title">Project Title</h3>
+              <p class="line" data-type>* What it does and what you built.</p>
+            </div>
+          </div>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="projects">* Back</button>
+          </div>
+        </div>
+
+        <!-- ---------- Contact Me Information ---------- -->
+        <div class="panel" data-panel="contact" data-back="home">
+          <h2 class="panel__title">* CONTACT</h2>
+          <p class="line" data-type>* Let's build something together.</p>
+          <div class="options">
+            <a class="option" data-soul href="mailto:kvinson@icstars.org">* Email <span class="option__note">kvinson@icstars.org</span></a>
+            <a class="option" data-soul href="https://github.com/KVeeIC" target="_blank" rel="noopener">* GitHub <span class="option__note">github.com/KVeeIC</span></a>
+            <button class="option" type="button" data-soul data-go="home">* Back</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- The three menu buttons Likely to add more here for future nav points -->
+      <nav class="menu" aria-label="Main">
+        <button class="menu__btn" type="button" data-soul data-go="about">
+          <span class="menu__icon menu__icon--about" aria-hidden="true"></span>ABOUT
+        </button>
+        <button class="menu__btn" type="button" data-soul data-go="projects">
+          <span class="menu__icon menu__icon--projects" aria-hidden="true"></span>PROJECTS
+        </button>
+        <button class="menu__btn" type="button" data-soul data-go="contact">
+          <span class="menu__icon menu__icon--contact" aria-hidden="true"></span>CONTACT
+        </button>
+      </nav>
+
+    </main>
+
+    <!-- On screen controls & code for touch screen controls for phones, tablets, and touch screen monitors -->
+    <div class="touchpad" aria-hidden="true">
+      <div class="dpad">
+        <button type="button" class="dpad__btn dpad__btn--up" data-dir="up" tabindex="-1"></button>
+        <button type="button" class="dpad__btn dpad__btn--left" data-dir="left" tabindex="-1"></button>
+        <button type="button" class="dpad__btn dpad__btn--right" data-dir="right" tabindex="-1"></button>
+        <button type="button" class="dpad__btn dpad__btn--down" data-dir="down" tabindex="-1"></button>
       </div>
-    </section>
-
-    
-    <section id="contact" class="section contact reveal">
-      <div class="section__label">
-        <span class="section__num">03</span>
-        <h2>Contact Me</h2>
+      <div class="action-btns">
+        <button type="button" class="action-btn" data-key="select" tabindex="-1">Z</button>
+        <button type="button" class="action-btn action-btn--back" data-key="back" tabindex="-1">X</button>
       </div>
+    </div>
 
-      <p class="contact__lead">Let's build something together.</p>
+    <footer class="footer">
+      <p class="footer__hint">ARROWS or WASD to move <span>/</span> Z or ENTER to select <span>/</span> X or ESC to go back</p>
+      <p>&copy; <span id="year">2026</span> Kamouyon Vinson</p>
+    </footer>
 
-      <div class="contact__links">
-        <a class="btn btn--gold" href="mailto:kvinson@icstars.org">kvinson@icstars.org</a>
-        <a class="btn btn--outline" href="https://github.com/KVeeIC" target="_blank" rel="noopener">github.com/KVeeIC</a>
-      </div>
-    </section>
+  </div>
 
-  </main>
-
-
-  <footer class="site-footer">
-    <p>&copy; <span id="year">2026</span> Kamouyon Vinson</p>
-  </footer>
-
-
+  <!-- =====================================================
+       4. Scripts List (this order matters: helpers first, main.js last)
+       ===================================================== -->
+  <script src="js/audio.js"></script>
+  <script src="js/typewriter.js"></script>
+  <script src="js/soul.js"></script>
+  <script src="js/panels.js"></script>
+  <script src="js/intro.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
