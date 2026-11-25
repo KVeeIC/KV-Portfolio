@@ -132,6 +132,7 @@ window.KV = window.KV || {};
   document.getElementById("year").textContent = new Date().getFullYear();
   KV.audio.init();
   KV.soul.init();
+  KV.panels.init();
 
   KV.intro.run({ reducedMotion }).then(() => {
     KV.soul.enable();

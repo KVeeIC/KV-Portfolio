@@ -376,7 +376,51 @@ a {
    It gets wider than the menu and taller to fit more text. */
 .box.is-large {
   width: min(1100px, calc(100vw - 2.5rem));
-  min-height: 440px;
+  height: clamp(360px, 58vh, 560px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* the title and Back button stay put, only .panel__body scrolls */
+.js .box.is-large > .panel.is-active {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.box.is-large .panel__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.8rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bone) var(--night);
+}
+
+.panel__body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.panel__body::-webkit-scrollbar-track {
+  background: var(--night);
+}
+
+.panel__body::-webkit-scrollbar-thumb {
+  background: var(--bone);
+}
+
+/* blinking arrow when there is more text further down
+   (.has-more is added by js/panels.js) */
+.panel__body.has-more::after {
+  content: "\25BC";
+  position: sticky;
+  bottom: 0;
+  display: block;
+  text-align: right;
+  color: var(--saffron);
+  font-size: 1.1rem;
+  animation: blink 0.8s steps(2) infinite;
 }
 
 /* The Undertale style resize. steps() makes it move in choppy,
@@ -713,7 +757,7 @@ html:not(.js) .stats__sound {
   /* on phones the box is already full width, so it only grows taller */
   .box.is-large {
     width: 100%;
-    min-height: 360px;
+    height: clamp(320px, 55vh, 480px);
   }
 
   .about,

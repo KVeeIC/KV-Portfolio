@@ -103,9 +103,14 @@ KV.soul = {
     if (dx || dy) {
       // same speed when moving diagonally
       const length = Math.hypot(dx, dy);
+      const stepY = (dy / length) * this.speed * dt;
       this.x += (dx / length) * this.speed * dt;
-      this.y += (dy / length) * this.speed * dt;
-      this.autoScroll(dy, dt);
+      // pushing against the edge of a scrollable text area scrolls it
+      // instead of moving the heart, until the end of the text is reached
+      if (!this.scrollArea(dy, stepY)) {
+        this.y += stepY;
+        this.autoScroll(dy, dt);
+      }
     } else if (this.mode === "mouse") {
       // glide toward the mouse
       this.x += (this.mouse.x - this.x) * 0.45;
@@ -119,6 +124,27 @@ KV.soul = {
     this.x = Math.max(half, Math.min(window.innerWidth - half, this.x));
     this.y = Math.max(half, Math.min(window.innerHeight - half, this.y));
     this.render();
+  },
+
+  // If the heart is near the top/bottom edge of a scrollable section
+  // (.panel__body) and moving toward it, scroll that section.
+  // Returns true if it scrolled.
+  scrollArea(dy, stepY) {
+    if (!dy) return false;
+    const under = document.elementFromPoint(this.x, this.y);
+    const area = under ? under.closest(".panel__body") : null;
+    if (!area || area.scrollHeight <= area.clientHeight) return false;
+
+    const r = area.getBoundingClientRect();
+    const edge = 40;
+    const canDown = area.scrollTop + area.clientHeight < area.scrollHeight - 1;
+    const canUp = area.scrollTop > 0;
+    const pushDown = dy > 0 && this.y > r.bottom - edge && canDown;
+    const pushUp = dy < 0 && this.y < r.top + edge && canUp;
+    if (!pushDown && !pushUp) return false;
+
+    area.scrollTop += stepY;
+    return true;
   },
 
   // On small screens the page can be taller than the window,

@@ -17,6 +17,26 @@ KV.panels = {
   resizeTime: 340,      // ms, keep in sync with .box.is-resizing in style.css
   reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
 
+  // Watches every scroll area so the blinking ▼ shows when there is more text
+  init() {
+    const observer = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        const body = entry.target.closest(".panel__body");
+        if (body) this.updateScrollHint(body);
+      });
+    });
+    document.querySelectorAll(".panel__body").forEach((body) => {
+      body.addEventListener("scroll", () => this.updateScrollHint(body), { passive: true });
+      observer.observe(body);
+      [...body.children].forEach((child) => observer.observe(child));
+    });
+  },
+
+  updateScrollHint(body) {
+    const more = body.scrollTop + body.clientHeight < body.scrollHeight - 2;
+    body.classList.toggle("has-more", more);
+  },
+
   async show(name, { instant = false, silent = false } = {}) {
     const next = document.querySelector(`[data-panel="${name}"]`);
     if (!next) return;
@@ -36,6 +56,10 @@ KV.panels = {
 
     const lines = [...next.querySelectorAll("[data-type]")];
     KV.typewriter.clear(lines);
+
+    // start scrollable sections at the top
+    const body = next.querySelector(".panel__body");
+    if (body) body.scrollTop = 0;
 
     // Grow or shrink the box first, then type the text
     const box = next.closest(".box");
