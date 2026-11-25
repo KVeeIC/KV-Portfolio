@@ -65,6 +65,18 @@ KV.typewriter = {
     if (id === this.runId) this.isTyping = false;
   },
 
+  // Stop any typing and empty these lines (used while the box resizes)
+  clear(lines) {
+    this.runId++;
+    this.isTyping = false;
+    this.lines = lines;
+    lines.forEach((line) => {
+      this.prepare(line);
+      line.querySelector(".line__visible").textContent = "";
+      line.classList.remove("is-typing");
+    });
+  },
+
   // Skip to the end: show all text now
   finish() {
     this.runId++;

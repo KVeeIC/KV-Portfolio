@@ -20,7 +20,7 @@
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader__sprite-wrap">
       <span class="loader__alert">!</span>
-      <img class="loader__sprite" id="loader-sprite" src="assets/images/kv-sprite.png" alt="">
+      <img class="loader__sprite" id="loader-sprite" src="assets/images/kv-sprite.png" alt="Custom made KV Pixel art sprite.">
     </div>
     <p class="loader__text">LOADING<span class="loader__dots"></span></p>
     <div class="loader__bar"><span id="loader-bar"></span></div>
@@ -132,6 +132,86 @@
           </div>
         </div>
 
+        <!-- ---------- i.c.stars (list of the five sections) ---------- -->
+        <div class="panel" data-panel="icstars" data-back="home">
+          <h2 class="panel__title">* i.c.stars</h2>
+          <p class="line" data-type>* Five areas of growth. Pick one to take a closer look.</p>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="icstars-leadership">* Leadership</button>
+            <button class="option" type="button" data-soul data-go="icstars-business">* Business</button>
+            <button class="option" type="button" data-soul data-go="icstars-technology">* Technology</button>
+            <button class="option" type="button" data-soul data-go="icstars-career">* Career Planning</button>
+            <button class="option" type="button" data-soul data-go="icstars-wellness">* Wellness</button>
+            <button class="option" type="button" data-soul data-go="home">* Back</button>
+          </div>
+        </div>
+
+        <!-- =====================================================
+             i.c.stars SECTIONS
+             data-size="large" makes the box grow when one of these opens.
+
+             HOW TO ADD YOUR OWN TEXT:
+               - Replace the text inside each <p class="line" data-type> ... </p>
+               - Each <p class="line" data-type> is one typed-out paragraph.
+                 Copy and paste that line to add more paragraphs.
+               - Start lines with "* " to keep the Undertale dialogue look.
+             ===================================================== -->
+
+        <!-- ---------- i.c.stars: Leadership ---------- -->
+        <div class="panel" data-panel="icstars-leadership" data-back="icstars" data-section="icstars" data-size="large">
+          <h2 class="panel__title">* i.c.stars <span class="panel__crumb">/</span> LEADERSHIP</h2>
+          <!-- EDIT YOUR LEADERSHIP TEXT BELOW -->
+          <p class="line" data-type>* Write about your leadership experience at i.c.stars here.</p>
+          <p class="line" data-type>* Add another paragraph here, or delete this line.</p>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="icstars">* Back</button>
+          </div>
+        </div>
+
+        <!-- ---------- i.c.stars: Business ---------- -->
+        <div class="panel" data-panel="icstars-business" data-back="icstars" data-section="icstars" data-size="large">
+          <h2 class="panel__title">* i.c.stars <span class="panel__crumb">/</span> BUSINESS</h2>
+          <!-- EDIT YOUR BUSINESS TEXT BELOW -->
+          <p class="line" data-type>* Write about what you learned about business here.</p>
+          <p class="line" data-type>* Add another paragraph here, or delete this line.</p>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="icstars">* Back</button>
+          </div>
+        </div>
+
+        <!-- ---------- i.c.stars: Technology ---------- -->
+        <div class="panel" data-panel="icstars-technology" data-back="icstars" data-section="icstars" data-size="large">
+          <h2 class="panel__title">* i.c.stars <span class="panel__crumb">/</span> TECHNOLOGY</h2>
+          <!-- EDIT YOUR TECHNOLOGY TEXT BELOW -->
+          <p class="line" data-type>* Write about the technology and skills you picked up here.</p>
+          <p class="line" data-type>* Add another paragraph here, or delete this line.</p>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="icstars">* Back</button>
+          </div>
+        </div>
+
+        <!-- ---------- i.c.stars: Career Planning ---------- -->
+        <div class="panel" data-panel="icstars-career" data-back="icstars" data-section="icstars" data-size="large">
+          <h2 class="panel__title">* i.c.stars <span class="panel__crumb">/</span> CAREER PLANNING</h2>
+          <!-- EDIT YOUR CAREER PLANNING TEXT BELOW -->
+          <p class="line" data-type>* Write about your career goals and plans here.</p>
+          <p class="line" data-type>* Add another paragraph here, or delete this line.</p>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="icstars">* Back</button>
+          </div>
+        </div>
+
+        <!-- ---------- i.c.stars: Wellness ---------- -->
+        <div class="panel" data-panel="icstars-wellness" data-back="icstars" data-section="icstars" data-size="large">
+          <h2 class="panel__title">* i.c.stars <span class="panel__crumb">/</span> WELLNESS</h2>
+          <!-- EDIT YOUR WELLNESS TEXT BELOW -->
+          <p class="line" data-type>* Write about wellness and how you take care of yourself here.</p>
+          <p class="line" data-type>* Add another paragraph here, or delete this line.</p>
+          <div class="options">
+            <button class="option" type="button" data-soul data-go="icstars">* Back</button>
+          </div>
+        </div>
+
         <!-- ---------- Contact Me Information ---------- -->
         <div class="panel" data-panel="contact" data-back="home">
           <h2 class="panel__title">* CONTACT</h2>
@@ -145,13 +225,16 @@
 
       </section>
 
-      <!-- The three menu buttons Likely to add more here for future nav points -->
+      <!-- The menu buttons. Likely to add more here for future nav points -->
       <nav class="menu" aria-label="Main">
         <button class="menu__btn" type="button" data-soul data-go="about">
           <span class="menu__icon menu__icon--about" aria-hidden="true"></span>ABOUT
         </button>
         <button class="menu__btn" type="button" data-soul data-go="projects">
           <span class="menu__icon menu__icon--projects" aria-hidden="true"></span>PROJECTS
+        </button>
+        <button class="menu__btn" type="button" data-soul data-go="icstars">
+          <span class="menu__icon menu__icon--icstars" aria-hidden="true"></span>i.c.stars
         </button>
         <button class="menu__btn" type="button" data-soul data-go="contact">
           <span class="menu__icon menu__icon--contact" aria-hidden="true"></span>CONTACT

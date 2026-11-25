@@ -372,6 +372,40 @@ a {
   to   { opacity: 1; }
 }
 
+/* Large box: used by panels with data-size="large" (the i.c.stars sections).
+   It gets wider than the menu and taller to fit more text. */
+.box.is-large {
+  width: min(1100px, calc(100vw - 2.5rem));
+  min-height: 440px;
+}
+
+/* The Undertale style resize. steps() makes it move in choppy,
+   frame-by-frame jumps like the battle box in the game.
+   Keep the 0.34s in sync with resizeTime in js/panels.js */
+.box.is-resizing {
+  transition: width 0.34s steps(10), height 0.34s steps(10);
+  overflow: hidden;
+}
+
+/* text is hidden while the box changes size */
+.box.is-hiding > .panel {
+  visibility: hidden;
+}
+
+/* the KV sprite shrinks a bit to make room for the large box */
+.encounter__sprite {
+  transition: height 0.34s steps(10);
+}
+
+.stage:has(.box.is-large) .encounter__sprite {
+  height: clamp(90px, 15vh, 150px);
+}
+
+.panel__crumb {
+  color: var(--bone-dim);
+  margin: 0 0.3rem;
+}
+
 .panel__title {
   font-family: var(--font-pixel);
   font-weight: 400;
@@ -505,7 +539,7 @@ a {
 .menu {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
@@ -535,6 +569,7 @@ a {
 .menu__icon--about    { --icon: url("../assets/icons/about.svg"); }
 .menu__icon--projects { --icon: url("../assets/icons/projects.svg"); }
 .menu__icon--contact  { --icon: url("../assets/icons/contact.svg"); }
+.menu__icon--icstars  { --icon: url("../assets/icons/icstars.svg"); }
 
 .menu__btn.is-soul-hover,
 .menu__btn:focus-visible {
@@ -675,6 +710,12 @@ html:not(.js) .stats__sound {
     min-height: 200px;
   }
 
+  /* on phones the box is already full width, so it only grows taller */
+  .box.is-large {
+    width: 100%;
+    min-height: 360px;
+  }
+
   .about,
   .project {
     grid-template-columns: 1fr;
@@ -688,7 +729,9 @@ html:not(.js) .stats__sound {
     width: 150px;
   }
 
+  /* four buttons become a 2 x 2 grid on phones */
   .menu {
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
   }
 
